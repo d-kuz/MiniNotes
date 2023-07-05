@@ -10,8 +10,8 @@
 </head>
 <body>
 <br><br><br><br>
-<form align="center" method="POST", action="/user/add">
-    <input login="loginUser" type="text" id="loginUser" class="form-control" placeholder="Login"/>
+<form align="center" th:action="@{/user/add}"  method="POST" >
+    <input login="name" type="text" id="name" class="form-control" placeholder="Login"/>
     <input login="passwordUser" type="text" id="passwordUser" class="form-control" placeholder="Password"/>
     <button type="submit" class="btn btn-light">Register</button>
 </form>

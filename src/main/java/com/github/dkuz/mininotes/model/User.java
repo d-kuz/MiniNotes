@@ -10,9 +10,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name="loginUsers")
-    private String loginUser;
-    @Column(name="passwordUsers")
+    @Column(name="name")
+    private String name;
+    @Column(name="passwordUser")
     private String passwordUser;
     private boolean admin = false;
 
@@ -21,8 +21,8 @@ public class User {
 
     public User() {}
 
-    public User(String loginUser, String passwordUser){
-        this.loginUser = loginUser;
+    public User(String name, String passwordUser){
+        this.name = name;
         this.passwordUser = passwordUser;
     }
 
@@ -40,11 +40,11 @@ public class User {
     }
 
     public String getLogin() {
-        return loginUser;
+        return name;
     }
 
     public void setLogin(String loginUser) {
-        this.loginUser = loginUser;
+        this.name = loginUser;
     }
 
     public String getPasswordUser() {
