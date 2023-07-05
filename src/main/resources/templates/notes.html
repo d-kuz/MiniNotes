@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <login>Group page</login>
+    <style>
+        body {background-color: #FFFFFF}
+        a { color:#000000; text-decoration:none;}
+    </style>
+</head>
+<body>
+<form method="GET", action="/note">
+    <h2 align="center">Users notes</h2>
+    <table th:if="${not #lists.isEmpty(notes)}">
+        <tr th:each="note : ${notes}">
+            <td>
+                <a th:href="@{/user/{userId}/note/{noteId}(userId = ${idUser}, noteId = ${idUser})}">
+                    <span th:text="${note.id + ') ' + note.noteText}">
+                    </span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/{userId}/settings(userId = ${idUser})}">Settings</a></button></p>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/{userId}/note/add(userId = ${idUser})}">Add a new note</a></button></p>
+</body>
+</html>

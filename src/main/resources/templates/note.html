@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <login>Track page</login>
+    <style>
+        body {background-color: #FFFFFF}
+        a { color:#000000; text-decoration:none;}
+    </style>
+</head>
+<body>
+<table th:if="${not #lists.isEmpty(users)}">
+    <tr th:each="user : ${users}">
+        <td>
+            <span th:text="${note.login}"></span>
+            <span th:text="${note.noteText}"></span>
+        </td>
+    </tr>
+</table>
+<br>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/{userId}/note(grId = ${user.userId})}">Go to note</a></button></p>
+</body>
+</html>
