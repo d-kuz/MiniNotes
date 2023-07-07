@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Files</title>
+  <style>
+    body {background-color: #FFFFFF}
+    a { color:#000000; text-decoration:none;}
+  </style>
+</head>
+<body>
+
+<h2 align="center">Choose an file</h2>
+<table align="center" th:if="${not #lists.isEmpty(files)}">
+  <tr th:each="file : ${files}">
+    <td>
+      <span th:if="${file.isAllDelete() == false}">
+      <a th:href="@{/user/file/{fileId}/note (fileId = ${file.getId()})}">
+        <span th:text="${file.name}"></span></a>
+      </a>
+      </span>
+    </td>
+  </tr>
+</table>
+<br>
+
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/user/file/add}">Add a new file</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/bin}">Deleted</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/logout}">Logout</a></button></p>
+</body>
+</html>

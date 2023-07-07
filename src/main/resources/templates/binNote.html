@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleted note</title>
+</head>
+<body>
+<table th:if="${not #lists.isEmpty(notes)}">
+  <tr th:each="note : ${notes}">
+    <td >
+            <span th:if="${note.isDelete() == true}">
+            <a th:href="@{/user/file/{fileId}/note/{noteId}/bin(fileId = ${idFile}, noteId=${note.getId()})}">
+                <span th:text="${note.name}"></span></a>
+            </span>
+    </td>
+  </tr>
+</table>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/file/{alId}/note(alId = ${idFile})}">Go to notes</a></button></p>
+</body>
+</html>

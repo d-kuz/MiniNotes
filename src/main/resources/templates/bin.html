@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleted file</title>
+</head>
+<body>
+<table th:if="${not #lists.isEmpty(files)}">
+    <tr th:each="file : ${files}">
+        <td >
+            <span th:if="${file.isDelete() == true}">
+            <a th:href="@{/user/file/{fileId}/bin(fileId = ${idFile}, noteId=${note.getId()})}">
+                <span th:text="${file.name}"></span></a>
+                <button type="submit" class="btn btn-light"> <a th:href="@{/user/file/{fileId}/remuve(fileId = ${idFile})}">remuve</a></button>
+            </span>
+        </td>
+    </tr>
+</table>
+<br>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/file}">Go to list files</a></button></p>
+</body>
+</body>
+</html>

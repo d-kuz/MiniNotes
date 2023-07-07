@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="an" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>File add</title>
+    <style>
+        body {background-color: #FFFFFF}
+        a { color:#000000; text-decoration:none;}
+    </style>
+</head>
+<body>
+<br><br><br><br>
+<form th:action="@{/user/file/add}" align="center" method="POST">
+    <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
+    <button type="submit" class="btn btn-light">Add an file</button>
+</form>
+<br>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/file}">Show all files</a></button></p>
+
+</body>
+</html>

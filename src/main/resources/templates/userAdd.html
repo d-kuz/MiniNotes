@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "an"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <login>Regist user</login>
-    <style>
-        body {background-color: #FFFFFF}
-        a { color:#000000; text-decoration:none;}
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Register page</title>
+  <style>
+    body {background-color: #FFFFFF}
+    a { color:#000000; text-decoration:none;}
+  </style>
 </head>
 <body>
 <br><br><br><br>
-<form align="center" th:action="@{/user/add}"  method="POST" >
-    <input login="name" type="text" id="name" class="form-control" placeholder="Login"/>
-    <input login="passwordUser" type="text" id="passwordUser" class="form-control" placeholder="Password"/>
-    <button type="submit" class="btn btn-light">Register</button>
+<form align="center" method="POST" th:action="@{/user/add}">
+  <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
+  <br><br>
+  <input name="password1" type="password" id="password1" class="form-control" placeholder="Password"/>
+  <br><br>
+  <input name="password2" type="password" id="password2" class="form-control" placeholder="Confirm your password"/>
+  <br><br>
+  <button type="submit">Register</button>
 </form>
 <br>
-<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user}">Go to users</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/}">Return to main page</a></a></button></p>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 align="center">Note</h2>
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/user/file/{fileId}/note/{noteId}/delete(fileId = ${idFile}, noteId = ${idNote})}">Delete note</a></button></p>
+<br><br>
+<form align="center" method="POST" th:action="@{/user/file/{fileId}/note/{noteId} (fileId = ${idFile}, noteId = ${idNote})}">
+    <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
+    <button type="submit" class="btn btn-light">Change the noteName</button>
+</form>
+<br><br>
+<form align="center" method="POST" th:action="@{/user/file/{fileId}/note/{noteId} (fileId = ${idFile}, noteId = ${idNote})}">
+    <input width="100px" height="200px" name="noteBody" type="text" id="noteBody" class="form-control" placeholder="Text"/>
+    <button type="submit" class="btn btn-light">Change the noteText</button>
+</form>
+<br><br>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/files/{alId}/note(alId = ${idFile})}">Show all notes</a></button></p>
+</body>
+</html>

@@ -9,8 +9,9 @@
         <version>3.1.1</version>
         <relativePath/>
     </parent>
-
-    <artifactId>MiniNotes</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>MiniNotesDemo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -31,6 +32,18 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -80,4 +93,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

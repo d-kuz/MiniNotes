@@ -1,23 +1,36 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <login>Track page</login>
-    <style>
-        body {background-color: #FFFFFF}
-        a { color:#000000; text-decoration:none;}
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Notes page</title>
+  <style>
+    body {background-color: #FFFFFF}
+    a { color:#000000; text-decoration:none;}
+  </style>
 </head>
 <body>
-<table th:if="${not #lists.isEmpty(users)}">
-    <tr th:each="user : ${users}">
-        <td>
-            <span th:text="${note.login}"></span>
-            <span th:text="${note.noteText}"></span>
-        </td>
-    </tr>
+<h2 align="center">Notes</h2>
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/user/file/{fileId}/delete(fileId = ${idFile})}">Delete file</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/user/file/{fileId}/note/add(fileId = ${idFile})}">Add a new note</a></button></p>
+<table th:if="${not #lists.isEmpty(notes)}">
+  <tr th:each="note : ${notes}">
+    <td>
+      <span th:if="${note.isDelete() == false}">
+        <p align="center">
+        <a th:href="@{/user/file/{fileId}/note/{noteId}(fileId = ${idFile}, noteId=${note.getId()})}">
+          <span th:text="${note.name}"></span></a>
+        <span th:text="${note.updateDateTime}"></span>
+        <br><br>
+          <p th:maxlength="40px"><span th:text="${note.noteBody}"></span></p>
+        <br>
+        </p>
+      </span>
+    </td>
+  </tr>
 </table>
 <br>
-<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/{userId}/note(grId = ${user.userId})}">Go to note</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/file}">Go to list files</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/bin}">Deleted</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/logout}">Logout</a></button></p>
 </body>
 </html>

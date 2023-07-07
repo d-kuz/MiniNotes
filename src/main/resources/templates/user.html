@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>User page</title>
+  <style>
+    body {background-color: #FFFFFF}
+    a { color:#000000; text-decoration:none;}
+  </style>
+</head>
+<body>
+<form method="GET", action="/user">
+  <h2 align="center">Choose a user</h2>
+  <table th:if="${not #lists.isEmpty(users)}">
+    <tr th:each="user : ${users}">
+      <td>
+        <a th:href="@{/user/{userId}/file/add(user = ${user.getId()})}"><span th:text="${user.getName()}"></span></a>
+      </td>
+    </tr>
+  </table>
+</form>
+<br>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/user/add}">Add a new user</a></button></p>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/logout}">Logout</a></button></p>
+</body>
+</html>
